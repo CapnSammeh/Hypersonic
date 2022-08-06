@@ -80,6 +80,15 @@
       "description": "Enable if you want to open links in the desktop app instead of the browser",
       "default": true,
       "required": false
+    },
+    {
+      "name": "use_notion_emojis",
+      "type": "checkbox",
+      "title": "Generate Random Emojis in Notion",
+      "label": "Generate Random Emojis in Notion",
+      "description": "Enable if you want to generate random Emojis for your To Do items",
+      "default": true,
+      "required": false
     }
   ],
   "dependencies": {

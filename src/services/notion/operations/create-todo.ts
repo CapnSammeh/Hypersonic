@@ -16,9 +16,11 @@ export async function createTodo(props: any): Promise<Todo> {
 
     const arg: CreatePageParameters = {
       parent: { database_id: database.databaseId },
-      icon: {
-        emoji: emoji.content,
-      },
+      ...(preferences.use_notion_emojis ? {
+        icon: {
+          emoji: emoji.content
+        }
+      } : {}),
       properties: {
         [preferences.property_title]: {
           title: [
@@ -35,8 +37,8 @@ export async function createTodo(props: any): Promise<Todo> {
         [preferences.property_date]: {
           date: props.date
             ? {
-                start: props.date,
-              }
+              start: props.date,
+            }
             : { start: new Date().toISOString().split('T')[0] },
         },
       },
