@@ -7,6 +7,7 @@ import { mapPageTag } from './map-page-tag'
 export const mapPageToTodo = (page: any): Todo => {
   const preferences = getPreferenceValues()
   return {
+    icon: page.icon,
     id: page.id,
     title: page.properties[preferences.property_title].title[0].text.content,
     isCompleted: page.properties[preferences.property_done].checkbox,

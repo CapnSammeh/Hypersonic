@@ -92,7 +92,7 @@ export function ToDoList({ selectTask }: { selectTask: (todo: Todo) => void }) {
             <List.Item
               key={todo.id}
               icon={todo.isCompleted ? Icon.Checkmark : Icon.Circle}
-              title={todo.title}
+              title={loading ? todo.title : todo.icon.emoji + " " + todo.title}
               accessories={
                 todo.tag
                   ? [

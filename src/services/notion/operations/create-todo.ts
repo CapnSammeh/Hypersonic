@@ -6,14 +6,19 @@ import { notion } from '../client'
 import { TodoPage } from '@/types/todo-page'
 import { isNotionClientError } from '@notionhq/client'
 import { getPreferenceValues, showToast, Toast } from '@raycast/api'
+import { emojis } from '@sefinek/random-emoji';
 
 export async function createTodo(props: any): Promise<Todo> {
   try {
     const database = await loadDatabase()
     const preferences = getPreferenceValues()
+    const emoji: any = emojis();
 
     const arg: CreatePageParameters = {
       parent: { database_id: database.databaseId },
+      icon: {
+        emoji: emoji.content,
+      },
       properties: {
         [preferences.property_title]: {
           title: [
